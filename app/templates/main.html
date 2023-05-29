@@ -1,0 +1,16 @@
+{% include 'layout.html' %}
+
+<div class="w-full min-h-[100vh] grid place-items-center">
+  <form
+    class="flex flex-col items-center justify-center gap-8 bg-secondary rounded-md px-12 py-4 shadow-sd"
+    method="POST"
+    enctype="multipart/form-data"
+    action=""
+  >
+    <h1 class="text-xl font-bold">PDF Pricing</h1>
+    {% csrf_token %} {{ form.file }}
+    <button class="bg-primary px-8 py-2 rounded-md" type="submit">
+      Upload
+    </button>
+  </form>
+</div>

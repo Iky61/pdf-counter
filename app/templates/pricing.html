@@ -1,0 +1,48 @@
+{% include 'layout.html' %}
+
+<div class="w-full min-h-[100vh] grid place-items-center">
+  <div
+    class="flex flex-col items-end justify-center bg-secondary rounded-md w-[90%] max-w-md px-12 py-4 shadow-sd"
+  >
+    <p class="w-full flex justify-between">
+      <span>Total Halaman</span>
+      <span class="font-bold">: {{ total_pages }} Halaman</span>
+    </p>
+    <p class="w-full flex justify-between">
+      <span>Halaman Hitam Putih</span>
+      <span class="font-bold">: {{ bw_pages }} Halaman</span>
+    </p>
+    <span class="text-gray mb-2">
+      ({{ bw_pages }} x <span class="currency">{{ bw_price }}</span> =
+      <span class="currency">{{ total_bw_price }}</span>)
+    </span>
+    <p class="w-full flex justify-between">
+      <span>Halaman Berwarna</span>
+      <span class="font-bold">: {{ colored_pages }} Halaman</span>
+    </p>
+    <span class="text-gray mb-4">
+      ({{ colored_pages }} x <span class="currency">{{ colored_price }}</span> =
+      <span class="currency">{{ total_colored_price }}</span>)
+    </span>
+    <p class="w-full flex justify-between border-t-2 border-gray border-solid">
+      <span>TOTAL</span>
+      <span class="font-bold">: Rp.54.000</span>
+    </p>
+    <a class="mt-8 self-center" href="/">
+      <button class="bg-primary px-8 py-2 rounded-md">Kembali</button>
+    </a>
+  </div>
+</div>
+
+<script>
+  const CURRENCY_OPTION = {
+    style: "currency",
+    currency: "IDR",
+    maximumFractionDigits: 0,
+  }
+  
+  currencies = document.querySelectorAll(".currency")
+  currencies?.forEach(currency => {
+    currency.innerHTML = Number(currency.innerHTML).toLocaleString("id-ID", CURRENCY_OPTION)
+  }) 
+</script>
